@@ -1,1 +1,1 @@
-cardViewData = { title: "ALL CARDS", cards: cardNames, comparisons: true };
+cardViewData = { title: "ALL CARDS", cards: cardNames, comparisons: false };
