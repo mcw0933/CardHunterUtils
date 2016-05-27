@@ -1,0 +1,1 @@
+cardViewData = { title: "ALL CARDS", cards: cardNames, comparisons: true };
