@@ -10,9 +10,16 @@
         <script type="text/javascript" src="scripts/handlebars.js"></script>
         <script type="text/javascript" src="scripts/initialize.js"></script>
         <script type="text/javascript" src="../data/gameplay/Cards/cards.js"></script>
+        <script type="text/javascript" src="scripts/image_lookup.js"></script>
         <script type="text/javascript" src="scripts/cardViewData.js"></script>
         <script type="text/javascript">
             var CARDS_PER_ROW = 6;
+
+            function lookup(name) {
+                return image_lookup[name] || 'images/NotYetImplemented.png';
+            };
+
+            Handlebars.registerPartial("image_lookup", lookup);
             
             function RenderSingleCard(renderFn) {
                 $("body").html(renderFn(window.cardViewData));
@@ -43,9 +50,6 @@
                                 $("#row" + ++row).append(comparison);
                             }
                         });
-                    
-                        
-                            
                     }
 
                     document.title = window.cardViewData.title || document.title;
@@ -64,7 +68,7 @@
                         {{#if artHeld}}
                         <img src="images/ArtOnHold.png" />
                         {{else}}
-                        <img src="../assets/card_illustrations/{{image.name}}{{image.ext}}" />
+                        <img class="cardImage" src="{{> image_lookup image.name}}" />
                         <img class="set" src="images/{{set}}.png" />
                         {{#if rarity}}<img class="rarity" src="images/{{rarity}}.png" />{{/if}}
                         {{/if}}

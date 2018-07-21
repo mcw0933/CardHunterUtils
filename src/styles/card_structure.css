@@ -43,6 +43,11 @@ body {
     z-index: 0;
 }
 
+img.cardImage {
+    width: 217px;
+    height: 129px;
+}
+
 .title {
     /* font-weight: bold; */
     font-size: 15px; /* 12pt */
